@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class TranslateAPI {
-  static const apiKey = "9ce5bbc697msh8fbe6b51bbdaa93p154485jsnc28d1622adfa";
+  static const apiKey = "991a1779demshbb49135bb161b12p1c24b7jsn50d6ba889c63";
 
   getTranslation(String query, String target) async {
     String resString = '';
@@ -11,7 +11,7 @@ class TranslateAPI {
     var headers = {
       'content-type': 'application/x-www-form-urlencoded',
       'Accept-Encoding': 'application/gzip',
-      'X-RapidAPI-Key': '82845ce4a6msh7ddc95d1f43627cp195e9djsn4ebc094d0a20',
+      'X-RapidAPI-Key': apiKey,
       'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
     };
     var request = http.Request(

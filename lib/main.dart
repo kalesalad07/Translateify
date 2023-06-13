@@ -7,7 +7,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:translateify/routing/app_router.dart';
 import 'package:translateify/services/app_services.dart';
 import 'package:translateify/services/auth_service.dart';
-import 'package:translateify/services/language_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,7 +40,7 @@ class MyAppState extends State<MyApp> {
   late AppService appService;
   late AuthService _authService;
   late StreamSubscription<bool> authSubscription;
-  late LanguageService langService;
+
   late StreamSubscription<bool> langSubscription;
 
   AuthService get authService => _authService;
@@ -50,7 +49,7 @@ class MyAppState extends State<MyApp> {
   void initState() {
     appService = AppService(widget.sharedPreferences);
     _authService = AuthService();
-    langService = LanguageService();
+
     authSubscription = _authService.onAuthStateChange.listen(onAuthStateChange);
 
     super.initState();
@@ -74,7 +73,6 @@ class MyAppState extends State<MyApp> {
         ChangeNotifierProvider<AppService>(create: (_) => appService),
         Provider<AppRouter>(create: (_) => AppRouter(appService)),
         Provider<AuthService>(create: (_) => _authService),
-        ChangeNotifierProvider<LanguageService>(create: (_) => langService)
       ],
       child: Builder(
         builder: (context) {

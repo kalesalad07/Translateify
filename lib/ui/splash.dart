@@ -17,7 +17,7 @@ class SplashState extends State<Splash> {
   @override
   void initState() {
     _appService = Provider.of<AppService>(context, listen: false);
-    print('splash');
+
     onStartUp();
     super.initState();
   }
